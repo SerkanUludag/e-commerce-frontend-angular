@@ -43,8 +43,10 @@ export class ProductAddComponent implements OnInit {
           this.toastrService.success(response.message, 'Success');
         },
         (errorResponse) => {
-          if (errorResponse.error.Errors.length > 0) {
+          console.log(errorResponse);
+          if (errorResponse.error.Errors?.length > 0) {
             for (let i = 0; i < errorResponse.error.Errors.length; i++) {
+              // for validation errors
               this.toastrService.error(
                 errorResponse.error.Errors[i].ErrorMessage,
                 'Error'
